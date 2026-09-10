@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI-Based Sentiment Analyzer</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="aurora"></div>
+
+  <main class="app">
+    <header class="app-header">
+      <div class="badge">SA</div>
+      <p class="tech-stack">PYTHON · FLASK · TEXTBLOB</p>
+      <h1>AI-Based Sentiment Analyzer</h1>
+      <p class="description">Discover the feeling behind your words. Enter a sentence or paragraph and TextBlob will classify it as positive, negative, or neutral.</p>
+    </header>
+
+    <section class="card">
+      <label for="text-input" class="label-text">Text to analyze</label>
+      <div class="textarea-container">
+        <textarea id="text-input" placeholder="Type something here..." maxlength="5000"></textarea>
+        <div class="textarea-footer">
+          <span id="char-count">0 / 5000</span>
+          <span>Tip: Share how you feel in a complete sentence.</span>
+        </div>
+      </div>
+
+      <div class="button-group">
+        <button id="analyze-btn" class="btn-primary">
+          <span class="btn-label">Analyze Sentiment</span>
+          <span class="spinner" id="spinner"></span>
+        </button>
+        <button id="clear-btn" class="btn-secondary">Clear</button>
+      </div>
+
+      <div id="error-msg" class="error-msg"></div>
+
+      <div id="result-box" class="result-card hidden">
+        <div class="result-top">
+          <div class="mood">
+            <div class="emoji" id="emoji">🙂</div>
+            <div>
+              <div class="sentiment-label" id="sentiment-label">Neutral</div>
+              <div class="score-row">
+                <span class="score-label">Polarity score</span>
+                <span id="polarity-score" class="score-value">0.00</span>
+              </div>
+            </div>
+          </div>
+          <div class="gauge-wrap">
+            <svg viewBox="0 0 200 110" class="gauge">
+              <path d="M10 100 A90 90 0 0 1 190 100" class="gauge-track" />
+              <path d="M10 100 A90 90 0 0 1 190 100" class="gauge-fill" id="gauge-fill" />
+            </svg>
+            <div class="gauge-value" id="gauge-value">0.00</div>
+          </div>
+        </div>
+
+        <div class="slider-container">
+          <div class="slider-track">
+            <div id="slider-pointer" class="slider-pointer"></div>
+          </div>
+          <div class="slider-labels">
+            <span>Negative</span>
+            <span>Neutral</span>
+            <span>Positive</span>
+          </div>
+        </div>
+
+        <div class="bars">
+          <div class="bar-row">
+            <span class="bar-label pos">Positive</span>
+            <div class="bar-track"><div class="bar-fill pos" id="bar-pos"></div></div>
+            <span class="bar-pct" id="pct-pos">0%</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label neu">Neutral</span>
+            <div class="bar-track"><div class="bar-fill neu" id="bar-neu"></div></div>
+            <span class="bar-pct" id="pct-neu">0%</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label neg">Negative</span>
+            <div class="bar-track"><div class="bar-fill neg" id="bar-neg"></div></div>
+            <span class="bar-pct" id="pct-neg">0%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <p class="footer-credit">Simple sentiment analysis for learning · Powered by TextBlob</p>
+  </main>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
