@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Secure Authentication System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<main class="container">
+
+    <section class="hero">
+
+        <p class="badge">
+            PYTHON • FLASK • JWT
+        </p>
+
+        <h1>
+            Secure Authentication System
+        </h1>
+
+        <p class="subtitle">
+            A simple authentication system with bcrypt password hashing
+            and JWT-based protected routes.
+        </p>
+
+    </section>
+
+
+    <div id="message"
+         class="message hidden">
+    </div>
+
+
+    <!-- Registration + Login -->
+
+    <section id="auth-section"
+             class="card-grid">
+
+        <!-- Registration -->
+
+        <div class="card">
+
+            <h2>
+                Create Account
+            </h2>
+
+            <p class="card-text">
+                Register a new account securely.
+            </p>
+
+            <form id="register-form">
+
+                <label for="register-username">
+                    Username
+                </label>
+
+                <input
+                    id="register-username"
+                    type="text"
+                    placeholder="John"
+                    required
+                >
+
+
+                <label for="register-email">
+                    Email
+                </label>
+
+                <input
+                    id="register-email"
+                    type="email"
+                    placeholder="john@example.com"
+                    required
+                >
+
+
+                <label for="register-password">
+                    Password
+                </label>
+
+                <input
+                    id="register-password"
+                    type="password"
+                    placeholder="Minimum 6 characters"
+                    minlength="6"
+                    required
+                >
+
+
+                <button type="submit">
+                    Register
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- Login -->
+
+        <div class="card">
+
+            <h2>
+                Welcome Back
+            </h2>
+
+            <p class="card-text">
+                Log in to access your protected profile.
+            </p>
+
+            <form id="login-form">
+
+                <label for="login-email">
+                    Email
+                </label>
+
+                <input
+                    id="login-email"
+                    type="email"
+                    placeholder="john@example.com"
+                    required
+                >
+
+
+                <label for="login-password">
+                    Password
+                </label>
+
+                <input
+                    id="login-password"
+                    type="password"
+                    placeholder="Your password"
+                    required
+                >
+
+
+                <button type="submit">
+                    Login
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- Dashboard -->
+
+    <section id="dashboard"
+             class="dashboard hidden">
+
+        <div class="card dashboard-card">
+
+            <div class="dashboard-header">
+
+                <div>
+
+                    <p class="badge">
+                        AUTHENTICATED
+                    </p>
+
+                    <h2>
+                        Profile Dashboard
+                    </h2>
+
+                </div>
+
+
+                <button
+                    id="logout-btn"
+                    class="secondary-btn"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+
+            <div class="profile">
+
+                <div class="profile-row">
+
+                    <span>
+                        User ID
+                    </span>
+
+                    <strong id="profile-id">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="profile-row">
+
+                    <span>
+                        Username
+                    </span>
+
+                    <strong id="profile-username">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="profile-row">
+
+                    <span>
+                        Email
+                    </span>
+
+                    <strong id="profile-email">
+                        -
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <p>
+            Internship Project • Secure Authentication System
+        </p>
+
+    </footer>
+
+</main>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
